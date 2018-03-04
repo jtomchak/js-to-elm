@@ -6,12 +6,14 @@ import Sidebar from "../components/Sidebar";
 
 class IndexRoute extends React.Component {
   render() {
+    console.log(this.props);
     const items = [];
     const { title, subtitle } = this.props.data.site.siteMetadata;
-    const posts = this.props.data.allMarkdownRemark.edges;
-    posts.forEach(post => {
-      items.push(<Post data={post} key={post.node.fields.slug} />);
-    });
+    //Possible use for micro posting
+    // const posts = this.props.data.allMarkdownRemark.edges;
+    // posts.forEach(post => {
+    //   items.push(<Post data={post} key={post.node.fields.slug} />);
+    // });
     const episodeItems = this.props.data.allContentfulEpisode.edges.map(episode => (
       <Episode data={episode} key={episode.node.slug} />
     ));
@@ -62,6 +64,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          audioUrl
           id
           title
           draft

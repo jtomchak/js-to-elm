@@ -2,7 +2,8 @@ module.exports = {
   siteMetadata: {
     url: "https://jstoelm.com",
     title: "JSToElm",
-    subtitle: "Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.",
+    subtitle:
+      "A show about learning Elm, Functional Programing, and generally leveling up as a JS developer.",
     copyright: "© All rights reserved.",
     disqusShortname: "",
     menu: [
@@ -20,10 +21,10 @@ module.exports = {
       }
     ],
     author: {
-      name: "Jesse Tomchak",
-      email: "#",
+      name: "JavaScript To Elm",
+      email: "contact@jstoelm.com",
       telegram: "#",
-      twitter: "#",
+      twitter: "@jstoelm",
       github: "#",
       rss: "#",
       vk: "#"

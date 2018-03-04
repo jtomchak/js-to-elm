@@ -5,7 +5,7 @@ import "./style.scss";
 
 class Episode extends React.Component {
   render() {
-    const { title, published, slug, summary } = this.props.data.node;
+    const { title, published, slug, summary, audioUrl } = this.props.data.node;
     // const { slug, categorySlug } = this.props.data.node.fields;
 
     return (
@@ -21,6 +21,9 @@ class Episode extends React.Component {
             {title}
           </Link>
         </h2>
+        <audio className="post__audio" title={title} controls preload="none">
+          <source src={`http://traffic.libsyn.com/jstoelm/${audioUrl}.mp3`} />
+        </audio>
         <p className="post__description">{summary.internal.content}</p>
         <Link className="post__readmore" to={slug}>
           Read
