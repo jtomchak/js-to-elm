@@ -25,8 +25,8 @@ module.exports = {
       email: "contact@jstoelm.com",
       telegram: "#",
       twitter: "@jstoelm",
-      github: "#",
-      rss: "#",
+      github: "@jtomchak",
+      rss: "rss.xml",
       vk: "#"
     }
   },
@@ -156,8 +156,8 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `bsndkuiop7u0`,
-        accessToken: `6098b7d21f081c5308b572f8a2a111d18ab94bd66fe04f97ca8addfa443df3ee`
+        spaceId: process.env.CONTENTFUL_ID || "",
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || ""
       }
     },
     "gatsby-plugin-offline",
