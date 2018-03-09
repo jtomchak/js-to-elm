@@ -12,7 +12,7 @@ class Episode extends React.Component {
       <div className="post">
         <div className="post__meta">
           <time className="post__meta-time" dateTime={moment(published).format("MMMM D, YYYY")}>
-            {moment(published).format("MMMM  YYYY")}
+            {moment(published).format("MMMM D YYYY")}
           </time>
           <span className="post__meta-divider" />
         </div>

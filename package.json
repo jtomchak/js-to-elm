@@ -13,11 +13,18 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "repository": "git+https://github.com/jtomchak/js-to-elm.git",
-  "keywords": ["gatsby", "blog", "react", "theme", "starter"],
+  "keywords": [
+    "gatsby",
+    "blog",
+    "react",
+    "theme",
+    "starter"
+  ],
   "author": "Jesse Tomchak <contact@jstoelm.com>",
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.5.1",
+    "dotenv": "^5.0.1",
     "gatsby": "^1.9.164",
     "gatsby-link": "^1.6.34",
     "gatsby-plugin-catch-links": "^1.0.14",

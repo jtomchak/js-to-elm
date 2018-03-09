@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 import Post from "../components/Post";
 import Episode from "../components/Episode";
 import Sidebar from "../components/Sidebar";
+import Footer from "../components/Footer";
 
 class IndexRoute extends React.Component {
   render() {
@@ -27,6 +28,7 @@ class IndexRoute extends React.Component {
         <Sidebar {...this.props} />
         <div className="content">
           <div className="content__inner">{episodeItems}</div>
+          <Footer />
         </div>
       </div>
     );
