@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
@@ -14,12 +14,20 @@ module.exports = {
         path: "/"
       },
       {
-        label: "About",
-        path: "/about/"
+        label: "iTunes",
+        path: "https://itunes.apple.com/us/podcast/javascript-to-elm/id1272026213?mt=2"
       },
       {
-        label: "Contact me",
-        path: "/contact/"
+        label: "RSS",
+        path: "http://jstoelm.libsyn.com/rss"
+      },
+      {
+        label: "GooglePlay",
+        path: "http://jstoelm.libsyn.com/gpm"
+      },
+      {
+        label: "Overcast",
+        path: "https://overcast.fm/itunes1272026213/javascript-to-elm"
       }
     ],
     author: {
