@@ -47,6 +47,7 @@ export const pageQuery = graphql`
         menu {
           label
           path
+          localPath
         }
         author {
           name

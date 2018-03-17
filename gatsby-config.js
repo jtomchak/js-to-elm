@@ -11,7 +11,8 @@ module.exports = {
     menu: [
       {
         label: "Episodes",
-        path: "/"
+        path: "/",
+        localPath: true
       },
       {
         label: "iTunes",
@@ -171,23 +172,23 @@ module.exports = {
       }
     },
     {
-    resolve: `gatsby-plugin-favicon`,
-    options: {
-      logo: "./src/favicon.png",
-      injectHTML: true,
-      icons: {
-        android: true,
-        appleIcon: true,
-        appleStartup: true,
-        coast: false,
-        favicons: true,
-        firefox: true,
-        twitter: false,
-        yandex: false,
-        windows: false
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: "./src/favicon.png",
+        injectHTML: true,
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          twitter: false,
+          yandex: false,
+          windows: false
+        }
       }
-    }
-  },
+    },
     "gatsby-plugin-offline",
     "gatsby-plugin-catch-links",
     "gatsby-plugin-react-helmet",
