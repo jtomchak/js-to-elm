@@ -5,20 +5,19 @@ import Episode from "../components/Episode";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 
-class IndexRoute extends React.Component {
+class EpisodeRoute extends React.Component {
   render() {
-    console.log(this.props);
     const items = [];
     const { title, subtitle } = this.props.data.site.siteMetadata;
+    const { group, index, first, last, pageCount } = this.props.pathContext;
+    const previousUrl = index - 1 == 1 ? "" : (index - 1).toString();
+    const nextUrl = (index + 1).toString();
     //Possible use for micro posting
     // const posts = this.props.data.allMarkdownRemark.edges;
     // posts.forEach(post => {
     //   items.push(<Post data={post} key={post.node.fields.slug} />);
     // });
-    const episodeItems = this.props.data.allContentfulEpisode.edges.map(episode => (
-      <Episode data={episode} key={episode.node.slug} />
-    ));
-    console.log(episodeItems, items);
+    const episodeItems = group.map(episode => <Episode data={episode} key={episode.node.slug} />);
     return (
       <div>
         <Helmet>
@@ -35,7 +34,7 @@ class IndexRoute extends React.Component {
   }
 }
 
-export default IndexRoute;
+export default EpisodeRoute;
 
 export const pageQuery = graphql`
   query IndexQuery {

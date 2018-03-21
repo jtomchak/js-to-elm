@@ -1,6 +1,6 @@
-import React from 'react';
-import Sidebar from '../Sidebar';
-import './style.scss';
+import React from "react";
+import Sidebar from "../Sidebar";
+import "./style.scss";
 
 class PageTemplateDetails extends React.Component {
   render() {

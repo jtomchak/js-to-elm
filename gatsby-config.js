@@ -11,7 +11,7 @@ module.exports = {
     menu: [
       {
         label: "Episodes",
-        path: "/",
+        path: "/episodes",
         localPath: true
       },
       {

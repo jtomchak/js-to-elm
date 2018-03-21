@@ -4,9 +4,11 @@ const path = require("path");
 const lost = require("lost");
 const pxtorem = require("postcss-pxtorem");
 const slash = require("slash");
+const paginationPages = require("./src/libs/pagination");
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
+  const { createRedirect } = boundActionCreators;
 
   return new Promise((resolve, reject) => {
     const postTemplate = path.resolve("./src/templates/post-template.jsx");
@@ -31,7 +33,11 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             }
           }
         }
-        allContentfulEpisode(limit: 1000) {
+        allContentfulEpisode(
+          limit: 1000
+          filter: { draft: { ne: true } }
+          sort: { order: DESC, fields: [published] }
+        ) {
           edges {
             node {
               parent {
@@ -42,6 +48,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               slug
               summary {
                 id
+                internal {
+                  content
+                }
               }
               article {
                 id
@@ -105,10 +114,31 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
       _.each(result.data.allContentfulEpisode.edges, edge => {
         if (_.get(edge, "node.parent.id") === "Episode") {
+          //creating episode pagination
+          paginationPages({
+            edges: result.data.allContentfulEpisode.edges,
+            createPage: createPage,
+            pageTemplate: "./src/pages/episodes.jsx",
+            pageLength: 1,
+            pathPrefix: "episodes",
+            buildPath: (index, pathPrefix) =>
+              index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}` // This is optional and this is the default
+          });
+          //creating each page for full episode notes
+          const episodePath = `/episodes/${edge.node.slug}`;
           createPage({
-            path: edge.node.slug,
+            path: episodePath,
             component: slash(eposideTemplate),
             context: { slug: edge.node.slug }
+          });
+          //create redirect for root
+          // One-off redirect, note trailing slash missing on fromPath and
+          // toPath here.
+          createRedirect({
+            fromPath: `/`,
+            isPermanent: true,
+            redirectInBrowser: true,
+            toPath: `/episodes`
           });
         }
       });
@@ -127,7 +157,6 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     createNodeField({ node, name: "slug", value: slug });
   } else if (node.internal.type === "MarkdownRemark" && typeof node.slug === "undefined") {
     const fileNode = getNode(node.parent);
-    console.log(node.internal.type, fileNode.internal.type);
     let slug = fileNode.fields ? fileNode.fields.slug : fileNode.slug;
     if (typeof node.frontmatter.path !== "undefined") {
       slug = node.frontmatter.path;
