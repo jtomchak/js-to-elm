@@ -1,5 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
+import Link from "gatsby-link";
 import Post from "../components/Post";
 import Episode from "../components/Episode";
 import Sidebar from "../components/Sidebar";
@@ -9,7 +10,7 @@ class EpisodeRoute extends React.Component {
   render() {
     const items = [];
     const { title, subtitle } = this.props.data.site.siteMetadata;
-    const { group, index, first, last, pageCount } = this.props.pathContext;
+    const { group, index, first, last, pageCount, pathPrefix } = this.props.pathContext;
     const previousUrl = index - 1 == 1 ? "" : (index - 1).toString();
     const nextUrl = (index + 1).toString();
     //Possible use for micro posting
@@ -27,6 +28,19 @@ class EpisodeRoute extends React.Component {
         <Sidebar {...this.props} />
         <div className="content">
           <div className="content__inner">{episodeItems}</div>
+          <div className="episodes__pagination">
+            {!first && (
+              <Link className="episodes__left" to={`/${pathPrefix}/${previousUrl}`}>
+                Previous
+              </Link>
+            )}
+
+            {!last && (
+              <Link className="episodes__right" to={`/${pathPrefix}/${nextUrl}`}>
+                Next
+              </Link>
+            )}
+          </div>
           <Footer />
         </div>
       </div>
