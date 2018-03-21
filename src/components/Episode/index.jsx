@@ -25,7 +25,7 @@ class Episode extends React.Component {
           <source src={`http://traffic.libsyn.com/jstoelm/${audioUrl}.mp3`} />
         </audio>
         <p className="post__description">{summary.internal.content}</p>
-        <Link className="post__readmore" to={slug}>
+        <Link className="post__readmore" to={`/episodes/${slug}`}>
           Read
         </Link>
       </div>
