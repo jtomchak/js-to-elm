@@ -17,7 +17,7 @@ class Episode extends React.Component {
           <span className="post__meta-divider" />
         </div>
         <h2 className="post__title">
-          <Link className="post__title-link" to={`episodes/${slug}`}>
+          <Link className="post__title-link" to={`/episodes/${slug}`}>
             {title}
           </Link>
         </h2>

@@ -11,7 +11,7 @@ class EpisodeRoute extends React.Component {
     const items = [];
     const { title, subtitle } = this.props.data.site.siteMetadata;
     const { group, index, first, last, pageCount, pathPrefix } = this.props.pathContext;
-    const previousUrl = index - 1 == 1 ? "" : (index - 1).toString();
+    const previousUrl = index - 1 == 1 ? "/" : `/${(index - 1).toString()}/`;
     const nextUrl = (index + 1).toString();
     //Possible use for micro posting
     // const posts = this.props.data.allMarkdownRemark.edges;
@@ -30,13 +30,13 @@ class EpisodeRoute extends React.Component {
           <div className="content__inner">{episodeItems}</div>
           <div className="episodes__pagination">
             {!first && (
-              <Link className="episodes__left" to={`/${pathPrefix}/${previousUrl}`}>
+              <Link className="episodes__pag-button" to={`/${pathPrefix}${previousUrl}`}>
                 Previous
               </Link>
             )}
 
             {!last && (
-              <Link className="episodes__right" to={`/${pathPrefix}/${nextUrl}`}>
+              <Link className="episodes__pag-button" to={`/${pathPrefix}/${nextUrl}`}>
                 Next
               </Link>
             )}
