@@ -18,7 +18,6 @@ const isFirstPage = index => (index === 0 ? true : false);
 const isLastPage = (index, groups) => (index === groups.length - 1 ? true : false);
 
 const createPaginatedPages = (posts, createPage, template, pathPrefix, buildPath, context) => {
-  console.log(posts[0]);
   posts.forEach((group, index, groups) => {
     const pageIndex = getPageIndex(index);
     return createPage({

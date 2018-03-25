@@ -10,7 +10,7 @@ class EpisodeRoute extends React.Component {
   render() {
     const items = [];
     const { title, subtitle } = this.props.data.site.siteMetadata;
-    const { group, index, first, last, pageCount, pathPrefix } = this.props.pathContext;
+    const { index, first, last, pageCount, pathPrefix } = this.props.pathContext;
     const previousUrl = index - 1 == 1 ? "/" : `/${(index - 1).toString()}/`;
     const nextUrl = (index + 1).toString();
     //Possible use for micro posting
@@ -18,6 +18,7 @@ class EpisodeRoute extends React.Component {
     // posts.forEach(post => {
     //   items.push(<Post data={post} key={post.node.fields.slug} />);
     // });
+    const group = this.props.pathContext.group || [];
     const episodeItems = group.map(episode => <Episode data={episode} key={episode.node.slug} />);
     return (
       <div>

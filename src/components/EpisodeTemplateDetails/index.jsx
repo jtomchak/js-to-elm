@@ -7,7 +7,6 @@ import Episode from "../Episode/index";
 
 class EpisodeTemplateDetails extends React.Component {
   render() {
-    console.log(this.props);
     const { subtitle, author } = this.props.data.site.siteMetadata;
     const episode = this.props.data.contentfulEpisode;
 
