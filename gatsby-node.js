@@ -4,18 +4,14 @@ const path = require("path");
 const lost = require("lost");
 const pxtorem = require("postcss-pxtorem");
 const slash = require("slash");
-const paginationPages = require("./src/libs/pagination");
+const { createPaginationPages } = require("gatsby-pagination");
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
   const { createRedirect } = boundActionCreators;
 
   return new Promise((resolve, reject) => {
-    const postTemplate = path.resolve("./src/templates/post-template.jsx");
     const eposideTemplate = path.resolve("./src/templates/episode-template.jsx");
-    const pageTemplate = path.resolve("./src/templates/page-template.jsx");
-    const tagTemplate = path.resolve("./src/templates/tag-template.jsx");
-    const categoryTemplate = path.resolve("./src/templates/category-template.jsx");
 
     graphql(`
       {
@@ -56,17 +52,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       _.each(result.data.allContentfulEpisode.edges, edge => {
         if (_.get(edge, "node.parent.id") === "Episode") {
           //creating episode pagination
-          paginationPages({
-            edges: result.data.allContentfulEpisode.edges,
+          createPaginationPages({
             createPage: createPage,
-            pageTemplate: "./src/pages/episodes.jsx",
-            pageLength: 1,
-            pathPrefix: "episodes",
-            buildPath: (index, pathPrefix) =>
-              index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}` // This is optional and this is the default
+            edges: result.data.allContentfulEpisode.edges,
+            component: path.resolve("src/templates/index.jsx"),
+            limit: 2
           });
           //creating each page for full episode notes
-          const episodePath = `/episodes/${edge.node.slug}`;
+          const episodePath = `episodes/${edge.node.slug}`;
           createPage({
             path: episodePath,
             component: slash(eposideTemplate),
@@ -75,12 +68,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           //create redirect for root
           // One-off redirect, note trailing slash missing on fromPath and
           // toPath here.
-          createRedirect({
-            fromPath: `/`,
-            isPermanent: true,
-            redirectInBrowser: true,
-            toPath: `/episodes`
-          });
         }
       });
 
@@ -107,16 +94,6 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
       name: "slug",
       value: slug
     });
-
-    if (node.frontmatter.tags) {
-      const tagSlugs = node.frontmatter.tags.map(tag => `/tags/${_.kebabCase(tag)}/`);
-      createNodeField({ node, name: "tagSlugs", value: tagSlugs });
-    }
-
-    if (typeof node.frontmatter.category !== "undefined") {
-      const categorySlug = `/categories/${_.kebabCase(node.frontmatter.category)}/`;
-      createNodeField({ node, name: "categorySlug", value: categorySlug });
-    }
   }
 };
 
