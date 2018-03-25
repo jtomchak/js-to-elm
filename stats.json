@@ -1,0 +1,76 @@
+{
+  "assetsByChunkName": {
+    "path---episodes": [
+      "path---episodes-c36e31a5c406d58cf192.js",
+      "path---episodes-c36e31a5c406d58cf192.js.map"
+    ],
+    "path---episodes-3": [
+      "path---episodes-3-2bb3135561d59502a903.js",
+      "path---episodes-3-2bb3135561d59502a903.js.map"
+    ],
+    "path---": [
+      "path----557518bd178906f8d58a.js",
+      "path----557518bd178906f8d58a.js.map"
+    ],
+    "path---episodes-26-ports-json-and-elm-render": [
+      "path---episodes-26-ports-json-and-elm-render-e6168a21216ec86fd542.js",
+      "path---episodes-26-ports-json-and-elm-render-e6168a21216ec86fd542.js.map"
+    ],
+    "component---src-layouts-index-jsx": [
+      "component---src-layouts-index-jsx-1ac2dc9ca737e36dd9d0.js",
+      "component---src-layouts-index-jsx-1ac2dc9ca737e36dd9d0.js.map"
+    ],
+    "component---node-modules-gatsby-plugin-offline-app-shell-js": [
+      "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js",
+      "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
+    ],
+    "component---src-templates-episode-template-jsx": [
+      "component---src-templates-episode-template-jsx-02e91c1ebc87694e7a33.js",
+      "component---src-templates-episode-template-jsx-02e91c1ebc87694e7a33.js.map"
+    ],
+    "path---episodes-27-state-of-elm": [
+      "path---episodes-27-state-of-elm-1fc340564ba10ad30883.js",
+      "path---episodes-27-state-of-elm-1fc340564ba10ad30883.js.map"
+    ],
+    "path---episodes-28-ports-multiplying": [
+      "path---episodes-28-ports-multiplying-23b9310426ec3ee8d3e5.js",
+      "path---episodes-28-ports-multiplying-23b9310426ec3ee8d3e5.js.map"
+    ],
+    "commons": [
+      "commons-bc5b09680848a6101a84.js",
+      "build-js-styles.css",
+      "commons-bc5b09680848a6101a84.js.map",
+      "build-js-styles.css.map"
+    ],
+    "path---404-html": [
+      "path---404-html-eb399673bc7fd42d9860.js",
+      "path---404-html-eb399673bc7fd42d9860.js.map"
+    ],
+    "component---src-pages-404-jsx": [
+      "component---src-pages-404-jsx-8a326cf45c70bb166816.js",
+      "component---src-pages-404-jsx-8a326cf45c70bb166816.js.map"
+    ],
+    "path---offline-plugin-app-shell-fallback": [
+      "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js",
+      "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---episodes-2": [
+      "path---episodes-2-046e6b19ec7845eaad70.js",
+      "path---episodes-2-046e6b19ec7845eaad70.js.map"
+    ],
+    "app": [
+      "app-d0325aedfac28226166a.js",
+      "build-js-styles.css",
+      "app-d0325aedfac28226166a.js.map",
+      "build-js-styles.css.map"
+    ],
+    "path---404": [
+      "path---404-eb399673bc7fd42d9860.js",
+      "path---404-eb399673bc7fd42d9860.js.map"
+    ],
+    "component---src-pages-episodes-jsx": [
+      "component---src-pages-episodes-jsx-39a0aadd7dd6024fff1b.js",
+      "component---src-pages-episodes-jsx-39a0aadd7dd6024fff1b.js.map"
+    ]
+  }
+}
