@@ -13,7 +13,12 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "repository": "git+https://github.com/jtomchak/js-to-elm.git",
-  "keywords": ["gatsby", "blog", "react", "elm"],
+  "keywords": [
+    "gatsby",
+    "blog",
+    "react",
+    "elm"
+  ],
   "author": "Jesse Tomchak <contact@jstoelm.com>",
   "license": "MIT",
   "dependencies": {
@@ -28,6 +33,7 @@
     "gatsby-plugin-feed": "^1.3.15",
     "gatsby-plugin-google-analytics": "^1.0.15",
     "gatsby-plugin-google-fonts": "latest",
+    "gatsby-plugin-netlify": "^1.0.19",
     "gatsby-plugin-offline": "^1.0.12",
     "gatsby-plugin-postcss-sass": "^1.0.15",
     "gatsby-plugin-react-helmet": "^2.0.3",
