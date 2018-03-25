@@ -1,7 +1,7 @@
-import React from 'react';
-import Helmet from 'react-helmet';
-import Sidebar from '../components/Sidebar';
-import CategoryTemplateDetails from '../components/CategoryTemplateDetails';
+import React from "react";
+import Helmet from "react-helmet";
+import Sidebar from "../components/Sidebar";
+import CategoryTemplateDetails from "../components/CategoryTemplateDetails";
 
 class CategoryTemplate extends React.Component {
   render() {
@@ -39,26 +39,6 @@ export const pageQuery = graphql`
           github
           rss
           vk
-        }
-      }
-    }
-    allMarkdownRemark(
-        limit: 1000,
-        filter: { frontmatter: { category: { eq: $category }, layout: { eq: "post" }, draft: { ne: true } } },
-        sort: { order: DESC, fields: [frontmatter___date] }
-      ){
-      edges {
-        node {
-          fields {
-            slug
-            categorySlug
-          }
-          frontmatter {
-            title
-            date
-            category
-            description
-          }
         }
       }
     }

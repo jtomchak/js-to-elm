@@ -5,11 +5,15 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "chrome",
+      "type": "node",
       "request": "launch",
-      "name": "Launch Chrome against localhost",
-      "url": "http://localhost:8000",
-      "webRoot": "${workspaceFolder}"
+      "name": "Gatsby develop",
+      "program": "${workspaceFolder}/node_modules/.bin/gatsby",
+      "args": ["develop"],
+      "restart": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "env": { "MY_ENV_VARS": "this is an env var" }
     }
   ]
 }

@@ -12,12 +12,8 @@ class EpisodeRoute extends React.Component {
     const { title, subtitle } = this.props.data.site.siteMetadata;
     const { index, first, last, pageCount, pathPrefix } = this.props.pathContext;
     const previousUrl = index - 1 == 1 ? "/" : `/${(index - 1).toString()}/`;
-    const nextUrl = (index + 1).toString();
-    //Possible use for micro posting
-    // const posts = this.props.data.allMarkdownRemark.edges;
-    // posts.forEach(post => {
-    //   items.push(<Post data={post} key={post.node.fields.slug} />);
-    // });
+    const nextUrl = index ? (index + 1).toString() : (index + 2).toString();
+
     const group = this.props.pathContext.group || [];
     const episodeItems = group.map(episode => <Episode data={episode} key={episode.node.slug} />);
     return (
@@ -95,26 +91,6 @@ export const pageQuery = graphql`
             internal {
               type
             }
-          }
-        }
-      }
-    }
-    allMarkdownRemark(
-      limit: 1000
-      filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }
-      sort: { order: DESC, fields: [frontmatter___date] }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-            categorySlug
-          }
-          frontmatter {
-            title
-            date
-            category
-            description
           }
         }
       }

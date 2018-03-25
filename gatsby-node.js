@@ -19,20 +19,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
     graphql(`
       {
-        allMarkdownRemark(limit: 1000, filter: { frontmatter: { draft: { ne: true } } }) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                tags
-                layout
-                category
-              }
-            }
-          }
-        }
         allContentfulEpisode(
           limit: 1000
           filter: { draft: { ne: true } }
@@ -66,56 +52,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         reject(result.errors);
       }
 
-      _.each(result.data.allMarkdownRemark.edges, edge => {
-        if (_.get(edge, "node.frontmatter.layout") === "page") {
-          createPage({
-            path: edge.node.fields.slug,
-            component: slash(pageTemplate),
-            context: { slug: edge.node.fields.slug }
-          });
-        } else if (_.get(edge, "node.frontmatter.layout") === "post") {
-          createPage({
-            path: edge.node.fields.slug,
-            component: slash(postTemplate),
-            context: { slug: edge.node.fields.slug }
-          });
-
-          let tags = [];
-          if (_.get(edge, "node.frontmatter.tags")) {
-            tags = tags.concat(edge.node.frontmatter.tags);
-          }
-
-          tags = _.uniq(tags);
-          _.each(tags, tag => {
-            const tagPath = `/tags/${_.kebabCase(tag)}/`;
-            createPage({
-              path: tagPath,
-              component: tagTemplate,
-              context: { tag }
-            });
-          });
-
-          let categories = [];
-          if (_.get(edge, "node.frontmatter.category")) {
-            categories = categories.concat(edge.node.frontmatter.category);
-          }
-
-          categories = _.uniq(categories);
-          _.each(categories, category => {
-            const categoryPath = `/categories/${_.kebabCase(category)}/`;
-            createPage({
-              path: categoryPath,
-              component: categoryTemplate,
-              context: { category }
-            });
-          });
-        }
-      });
-
       _.each(result.data.allContentfulEpisode.edges, edge => {
         if (_.get(edge, "node.parent.id") === "Episode") {
           //creating episode pagination
-          console.log(result.data.allContentfulEpisode.edges);
           paginationPages({
             edges: result.data.allContentfulEpisode.edges,
             createPage: createPage,

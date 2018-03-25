@@ -1,6 +1,6 @@
-import React from 'react';
-import Helmet from 'react-helmet';
-import PostTemplateDetails from '../components/PostTemplateDetails';
+import React from "react";
+import Helmet from "react-helmet";
+import PostTemplateDetails from "../components/PostTemplateDetails";
 
 class PostTemplate extends React.Component {
   render() {
@@ -36,19 +36,6 @@ export const pageQuery = graphql`
         }
         disqusShortname
         url
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      html
-      fields {
-        tagSlugs
-      }
-      frontmatter {
-        title
-        tags
-        date
-        description
       }
     }
   }
