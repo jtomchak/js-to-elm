@@ -52,6 +52,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         reject(result.errors);
       }
 
+      console.log(result.data.allContentfulEpisode.edges);
       _.each(result.data.allContentfulEpisode.edges, edge => {
         if (_.get(edge, "node.parent.id") === "Episode") {
           //creating episode pagination
