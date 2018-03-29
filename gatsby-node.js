@@ -57,7 +57,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             createPage: createPage,
             edges: result.data.allContentfulEpisode.edges,
             component: path.resolve("src/templates/index.jsx"),
-            limit: 2
+            limit: 5
           });
           //creating each page for full episode notes
           const episodePath = `episodes/${edge.node.slug}`;
