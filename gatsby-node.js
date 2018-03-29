@@ -28,6 +28,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               id
               title
               slug
+              published
               summary {
                 id
                 internal {
