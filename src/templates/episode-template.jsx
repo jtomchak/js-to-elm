@@ -37,6 +37,7 @@ export const pageQuery = graphql`
       }
     }
     contentfulEpisode(slug: { eq: $slug }) {
+      audioUrl
       id
       title
       draft
