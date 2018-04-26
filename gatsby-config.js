@@ -33,7 +33,7 @@ module.exports = {
     ],
     author: {
       name: "JavaScript To Elm",
-      email: "contact@jstoelm.com",
+      email: "jesse@jstoelm.com",
       telegram: "#",
       twitter: "@jstoelm",
       github: "@jtomchak",
